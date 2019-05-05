@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StudentApplication.Models;
@@ -25,11 +26,18 @@ namespace StudentApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //Connect to the Database
+
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
+
             //When ever users asks for Student repository a new repository will be created
             //Using AddTrasient method
             //So add a service below - vijay
             //If IstudentRepository was called then new instance StudentRepository will be injected every time 
-            services.AddTransient<IStudentRepository, StudentRepository>();
+            services.AddTransient<IStudentRepository, StudentDBRepository>();
 
             //We also have singleton - Only one single instance is going to be created 
             //services.AddSingleton<IStudentRepository, StudentRepository>();
