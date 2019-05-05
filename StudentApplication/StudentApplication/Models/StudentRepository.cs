@@ -11,22 +11,22 @@ namespace StudentApplication.Models
         //Construct if students are not empty
         public StudentRepository()
         {
-            if(_students != null)
+            if(_students == null)
             {
-                initStudents();
+                InitStudents();
             }
         }
 
-        public void initStudents()
+        public void InitStudents()
         {
             //Add students to the List 
             _students = new List<Student>
             {
                 //Create multiple stduents with different data set
                 new Student{Id=1,name="vijay",email="email1@gmail.com"},
-                new Student{Id=1,name="malla",email="email2@gmail.com"},
-                new Student{Id=1,name="zack",email="email3@gmail.com"},
-                new Student{Id=1,name="andrew",email="email4@gmail.com"},
+            new Student { Id = 2, name = "malla", email = "email2@gmail.com" },
+            new Student { Id = 3, name = "zack", email = "email3@gmail.com" },
+            new Student { Id = 4, name = "andrew", email = "email4@gmail.com" }
             };
         }
 

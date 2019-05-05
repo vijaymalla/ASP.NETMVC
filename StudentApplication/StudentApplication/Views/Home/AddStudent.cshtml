@@ -1,0 +1,36 @@
+﻿<!--import the model-->
+@model IEnumerable<StudentApplication.Models.Student>
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>
+            @ViewBag.AddStudent
+        </h1>
+        <form action="/action_page.php">
+            First name: <input type="text" name="FirstName" value="Mickey"><br>
+            Last name: <input type="text" name="LastName" value="Mouse"><br>
+            <input type="submit" value="Submit">
+        </form>
+        <h1>@ViewBag.Title</h1>
+        <!--Loop through the student list-->
+            <table>
+                <tr>
+                    <th>Number</th>
+                    <th>Name</th>
+                    <th>emailId</th>
+                </tr>
+                @foreach (var student in Model){
+                 <tr>
+                     <td>@student.Id</td>
+                     <td>@student.name</td>
+                     <td>@student.email</td>
+                 </tr>
+                }
+
+            </table>
+    </body>
+</html>
