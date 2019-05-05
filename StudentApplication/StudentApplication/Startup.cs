@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StudentApplication.Models;
 
 namespace StudentApplication
 {
@@ -24,6 +25,21 @@ namespace StudentApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //When ever users asks for Student repository a new repository will be created
+            //Using AddTrasient method
+            //So add a service below - vijay
+            //If IstudentRepository was called then new instance StudentRepository will be injected every time 
+            services.AddTransient<IStudentRepository, StudentRepository>();
+
+            //We also have singleton - Only one single instance is going to be created 
+            //services.AddSingleton<IStudentRepository, StudentRepository>();
+
+            //We also have per scope instance 
+            //services.AddScoped<IStudentRepository, StudentRepository>();
+
+            //For new Only use AddTransient to get multiple indtances of StudentRepository 
+
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
