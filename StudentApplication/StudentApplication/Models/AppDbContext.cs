@@ -13,6 +13,8 @@ namespace StudentApplication.Models
         //Asiking Entity core to manage the Student Entity to manage in the database 
         public DbSet<Student> Students { get; set; }
 
+        public DbSet<Subjects> Subjects { get; set; }
+
         //Later it will create a Student table in the database
     }
 }

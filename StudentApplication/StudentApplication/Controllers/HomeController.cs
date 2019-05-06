@@ -8,7 +8,7 @@ using StudentApplication.Models;
 
 namespace StudentApplication.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ControllerBase
     {
         //Initilize a private field of IStudentRepository type
         private readonly IStudentRepository _studentRepository;

@@ -21,7 +21,7 @@ namespace StudentApplication.Models
 
         public Student GetById(int Id)
         {
-            return _appDbContext.Students.Find(Id == Id);
+            throw new NotImplementedException();
         }
     }
 }
